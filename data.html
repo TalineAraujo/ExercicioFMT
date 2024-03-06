@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de JSON</title>
+</head>
+<body>
+    <div id="json-content"></div>
+
+    <script>
+        // Use a Fetch API para obter o arquivo JSON
+        fetch('data.json')
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => {
+                // Exibe o conteúdo JSON na página HTML
+                const jsonContent = document.getElementById('json-content');
+                jsonContent.textContent = JSON.stringify(data, null, 2); // Formata o JSON para exibição legível
+            })
+            .catch(error => console.error('Erro ao buscar o arquivo JSON:', error));
+    </script>
+</body>
+</html>
